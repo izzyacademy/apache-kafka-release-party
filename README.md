@@ -1,4 +1,5 @@
 # How to Validate Apache Kafka Release Candidates
+![alt text](Thumbnail.png)
 Hello Kafka Community Members and welcome to the Apache Kafka Release Party! As part of [an effort](https://issues.apache.org/jira/browse/KAFKA-9861) ([KAFKA-9861](https://issues.apache.org/jira/browse/KAFKA-9861)) to get more community participation during release candidate (RC) validations, I have created the following steps to hopefully allow more community members to participate thoroughly in this validation process prior to casting their votes for specific RCs. 
 
 It is also my hope that more community members will be able to participate in the process as a result. If you have any suggestions for improvement or would like to share changes, please feel free to send in a pull request or open issues against this github repo.  You may also reach out to me directly. 
