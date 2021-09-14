@@ -23,6 +23,7 @@ Prior to voting for the release candidates, we plan to validate the following:
 
 
 ## Base URLs for Latest Release Candidates
+
 For the 3.0.0 Release Candidate, you can you this URL:
 
 https://home.apache.org/~kkarantasis/kafka-3.0.0-rc2/
@@ -31,6 +32,7 @@ For the 2.8.1 RC, you can use this as the base URL:
 
 https://home.apache.org/~dajac/kafka-2.8.1-rc0/
 
+You can specify these as environment variables in your Dockerfile as needed.
 
 ## Currently Supported Validations
 These are validations that are currently supported
@@ -57,6 +59,8 @@ git clone git@github.com:izzyacademy/apache-kafka-release-party.git
 # Navigate to the local git repo
 cd apache-kafka-release-party
 ```
+
+Please add the appropriate environment variables in your Dockerfile accordingly.
 
 ## Validation of Hashes, GPG Keys and Source Code
 
