@@ -1,0 +1,26 @@
+---
+# Run the compose file as follows
+# docker-compose up
+# docker-compose down --remove-orphans
+#
+version: '2'
+
+networks:
+  default:
+    name: izzyacademy_docs_validation
+
+services:
+
+  # You can use this to connect to the docker container once it is running
+  # docker exec -it kafkadocs /bin/bash
+  debugger:
+    image: izzyacademy/kafka-docs:3.0.0-rc2
+    hostname: kafkadocs
+    container_name: kafkadocs
+    ports:
+      - "80:80"
+      - "443:443"
+    # starts the Apache HTTPD server in the foreground
+    entrypoint: ["apachectl", "-D", "FOREGROUND"] 
+
+  

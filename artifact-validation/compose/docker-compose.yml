@@ -1,0 +1,22 @@
+---
+# Run the compose file as follows
+# docker-compose up
+# docker-compose down --remove-orphans
+#
+version: '2'
+
+networks:
+  default:
+    name: izzyacademy_artifact_validation
+
+services:
+
+  # You can use this to connect to the docker container once it is running
+  # docker exec -it validator /bin/bash
+  debugger:
+    image: izzyacademy/kafka-artifact-base:3.0.0-rc2
+    hostname: validator
+    container_name: validator
+    entrypoint: [ 'sleep', '48h' ]
+
+  
