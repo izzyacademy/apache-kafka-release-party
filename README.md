@@ -174,6 +174,9 @@ You may run the following commands, to build the Docker images:
 
 ```shell
 
+# Navigate to the Cluster Validation Folder
+cd cluster-validation
+
 # This builds the base binary image for your specified RC, version number and Scala version
 
 docker build . -f Binary-Base.Dockerfile -t izzyacademy/kafka-binary-base:3.0.0-rc2
