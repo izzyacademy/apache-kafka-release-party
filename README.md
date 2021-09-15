@@ -12,6 +12,9 @@ It is my hope that more community members will be able to participate in the pro
 
 Thanks in advance for your participation.
 
+This video explains and walks you through the steps below:
+https://youtu.be/T1VqFszLuQs
+
 ## Objectives of Validation
 Prior to voting for the release candidates, we plan to validate the following:
 - PGP Signatures used to sign the release artifacts
