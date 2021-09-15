@@ -28,5 +28,5 @@ WORKDIR /usr/local/software
 EXPOSE 80 443 
 
 # This is how to build the base Docker image
-# docker build . -f Docs.Dockerfile -t izzyacademy/kafka-docs:3.0.0-rc2
+# docker build . -f Docs.Dockerfile -t izzyacademy/kafka-docs:2.8.1-rc1
 

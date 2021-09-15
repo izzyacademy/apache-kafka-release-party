@@ -1,4 +1,4 @@
-FROM izzyacademy/kafka-binary-base:3.0.0-rc2
+FROM izzyacademy/kafka-binary-base:2.8.1-rc1
 
 # in Zookeeper, Brokers and Connect Docker images:
 # Copy over the python scripts and generate the configs for Connect Nodes
@@ -13,4 +13,4 @@ EXPOSE 8083
 
 ENTRYPOINT ["/usr/local/software/kafka/bin/connect.entrypoint.sh"]
 
-# docker build . -f Connect.Dockerfile -t izzyacademy/kafka-connect:3.0.0-rc2
+# docker build . -f Connect.Dockerfile -t izzyacademy/kafka-connect:2.8.1-rc1

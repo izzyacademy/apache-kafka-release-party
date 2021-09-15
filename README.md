@@ -71,14 +71,14 @@ To validate the cryptographic hashes of the artifacts, please follow the followi
 # Navigate to the Artifact Validation Folder
 cd artifact-validation
 
-# Create the local docker image needed
-docker build . -f Validation.Dockerfile -t izzyacademy/kafka-artifact-base:3.0.0-rc2
+# Create the local docker image needed. Please change the image tag to match your release candidate version
+docker build . -f Validation.Dockerfile -t izzyacademy/kafka-artifact-base:2.8.1-rc1
 
 # Fire up the Docker Compose instance to boot up the Docker container(s)
 cd compose 
 docker-compose up
 
-# Log into the running container
+# Log into the running container in a separate window or tab
 docker exec -it validator /bin/bash
 
 
@@ -134,8 +134,8 @@ To validate the site documents, you need to run the commands below and at the en
 # Navigate to the Artifact Validation Folder
 cd docs-validation
 
-# Create the local docker image needed
-docker build . -f Docs.Dockerfile -t izzyacademy/kafka-docs:3.0.0-rc2
+# Create the local docker image needed. Please change the image tag to match your release candidate version
+docker build . -f Docs.Dockerfile -t izzyacademy/kafka-docs:2.8.1-rc1
 
 # Fire up the Docker Compose instance to boot up the Docker container(s)
 cd compose 
@@ -178,20 +178,20 @@ You may run the following commands, to build the Docker images:
 cd cluster-validation
 
 # This builds the base binary image for your specified RC, version number and Scala version
-
-docker build . -f Binary-Base.Dockerfile -t izzyacademy/kafka-binary-base:3.0.0-rc2
+# Please change the image tag to match your release candidate version
+docker build . -f Binary-Base.Dockerfile -t izzyacademy/kafka-binary-base:2.8.1-rc1
 
 # Building the Docker image for Zookeeper container(s)
-
-docker build . -f Zookeeper.Dockerfile -t izzyacademy/zookeeper:3.0.0-rc2
+# Please change the image tag to match your release candidate version
+docker build . -f Zookeeper.Dockerfile -t izzyacademy/zookeeper:2.8.1-rc1
 
 # Building the Docker image for Kafka Broker container(s)
-
-docker build . -f Broker.Dockerfile -t izzyacademy/kafka-broker:3.0.0-rc2
+# Please change the image tag to match your release candidate version
+docker build . -f Broker.Dockerfile -t izzyacademy/kafka-broker:2.8.1-rc1
 
 # Building the Docker image for Kafka Connect container(s)
-
-docker build . -f Connect.Dockerfile -t izzyacademy/kafka-connect:3.0.0-rc2
+# Please change the image tag to match your release candidate version
+docker build . -f Connect.Dockerfile -t izzyacademy/kafka-connect:2.8.1-rc1
 
 ```
 
@@ -223,13 +223,44 @@ docker-compose up
 # Shuts down containers
 docker-compose down --remove-orphans
 
+# You can log onto broker2 to validate the cluster in a separate window or tab
+docker exec -it broker2 /bin/bash
+
+# Navigate to the directory
+cd /usr/local/software/kafka/bin
+
+./kafka-log-dirs.sh --describe --bootstrap-server localhost:9092
+
+./kafka-broker-api-versions.sh --bootstrap-server localhost:9092
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic citypopulation --partitions 1 --replication-factor 1
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic countrypopulation --partitions 2 --replication-factor 1
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic worldcapitals --partitions 3 --replication-factor 2
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic uscapitals --partitions 3 --replication-factor 5
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --describe uscapitals
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --describe worldcapitals
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --describe countrypopulation
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --describe citypopulation
 ```
+
+
 
 #### Running in KRaft Mode (Single-Node Cluster)
 
 This setup creates a single node cluster that runs without Zookeeper
 
 ```shell
+
+cd apache-kafka-release-party/cluster-validation
 
 cd compose/kraft
 
@@ -238,6 +269,66 @@ docker-compose up
 
 # Shuts down the containers
 docker-compose down --remove-orphans
+
+# Log on to NodeId=1 from a separate window or tab
+docker exec -it node1 /bin/bash
+
+# Navigate to the directory
+cd /usr/local/software/kafka/bin
+
+./kafka-cluster.sh cluster-id --bootstrap-server localhost:9092
+
+./kafka-log-dirs.sh --describe --bootstrap-server localhost:9092
+
+./kafka-storage.sh info -c ../config/broker.izzy.properties
+
+./kafka-broker-api-versions.sh --bootstrap-server localhost:9092
+
+./kafka-metadata-shell.sh  --snapshot /tmp/kraft-logs/@metadata-0/00000000000000000000.log
+
+# Then explore the following metadata, if present : brokers  local  metadataQuorum  topicIds  topics
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic citypopulation --partitions 1 --replication-factor 1
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic countrypopulation --partitions 2 --replication-factor 1
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic worldcapitals --partitions 3 --replication-factor 2
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic uscapitals --partitions 3 --replication-factor 5
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --describe uscapitals
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --describe worldcapitals
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --describe countrypopulation
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --describe citypopulation
+
+./kafka-metadata-shell.sh  --snapshot /tmp/kraft-combined-logs/@metadata-0/00000000000000000000.log
+
+# Then explore the following metadata, if present : brokers  local  metadataQuorum  topicIds  topics
+
+# Keys with numbers as the keys and the square roots as the value
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic freedomzone --property "parse.key=true" --property "key.separator=,"
+
+64,Eight
+100,Ten
+4,Two
+1,One
+
+# https://www.britannica.com/topic/list-of-state-capitals-in-the-United-States-2119210
+
+./kafka-console-producer.sh --broker-list localhost:9092 --topic uscapitals --property "parse.key=true" --property "key.separator=:"
+
+Florida:Tallahasee
+Georgia:Atlanta
+Maine:Augusta
+Hawaii:Hononulu
+
+./kafka-console-consumer.sh --new-consumer --bootstrap-server localhost:9092 --topic uscapitals --property print.key=true --property key.separator=":" --from-beginning
+
 ```
 
 #### Running in KRaft Mode (Multi-Node Cluster)

@@ -14,7 +14,7 @@ services:
   # You can use this to connect to the docker container once it is running
   # docker exec -it kafkadocs /bin/bash
   debugger:
-    image: izzyacademy/kafka-docs:3.0.0-rc2
+    image: izzyacademy/kafka-docs:2.8.1-rc1
     hostname: kafkadocs
     container_name: kafkadocs
     ports:

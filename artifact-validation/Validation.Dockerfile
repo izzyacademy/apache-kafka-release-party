@@ -30,18 +30,18 @@ RUN unzip  gradle-7.2-bin.zip && mv gradle-7.2 gradle
 ENV TMPDIR="/tmp/kafka-validation"
 
 # This is the Kafka version
-ENV PROJECT_KAFKA_VERSION="3.0.0"
+ENV PROJECT_KAFKA_VERSION="2.8.1"
 
 # This is the Scala version
 ENV PROJECT_SCALA_VERSION="2.13"
 
 # This is the download URL for release artifacts
-ENV PROJECT_DOWNLOAD_URL="https://home.apache.org/~kkarantasis/kafka-3.0.0-rc2/"
+ENV PROJECT_DOWNLOAD_URL="https://home.apache.org/~dajac/kafka-2.8.1-rc1/"
 
 COPY scripts/verify-artifacts.sh /usr/local/software/verify-artifacts.sh
 
 RUN chmod 0755 /usr/local/software/verify-artifacts.sh
 
 # This is how to build the base Docker image
-# docker build . -f Validation.Dockerfile -t izzyacademy/kafka-artifact-base:3.0.0-rc2
+# docker build . -f Validation.Dockerfile -t izzyacademy/kafka-artifact-base:2.8.1-rc1
 
