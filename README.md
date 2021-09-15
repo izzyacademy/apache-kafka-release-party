@@ -30,7 +30,7 @@ https://home.apache.org/~kkarantasis/kafka-3.0.0-rc2/
 
 For the 2.8.1 RC, you can use this as the base URL:
 
-https://home.apache.org/~dajac/kafka-2.8.1-rc0/
+https://home.apache.org/~dajac/kafka-2.8.1-rc1/
 
 You can specify these as environment variables in your Dockerfile as needed.
 
