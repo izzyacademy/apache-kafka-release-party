@@ -27,15 +27,25 @@ Prior to voting for the release candidates, we plan to validate the following:
 
 ## Base URLs for Latest Release Candidates
 
-For the 3.0.0 Release Candidate, you can you this URL:
+These are the base urls for the various release candidates that have been tested. Remember, KRaft mode is only possible for Kafka 2.8 and later.
 
-https://home.apache.org/~kkarantasis/kafka-3.0.0-rc2/
+- Kafka 3.0.0: https://home.apache.org/~kkarantasis/kafka-3.0.0-rc2/
+- Kafka 2.8.1: https://home.apache.org/~dajac/kafka-2.8.1-rc1/
+- Kafka 2.7.2: https://home.apache.org/~mimaison/kafka-2.7.2-rc0/
+- Kafka 2.6.3: https://home.apache.org/~mimaison/kafka-2.6.3-rc0/
 
-For the 2.8.1 RC, you can use this as the base URL:
+You can specify these URLs and thier corresponding version numbers as environment variables in your Dockerfile as needed.
 
-https://home.apache.org/~dajac/kafka-2.8.1-rc1/
+Here is an example:
 
-You can specify these as environment variables in your Dockerfile as needed.
+```bash
+# Set this up on your Dockerfile for Source Code validation and Cluster validation
+
+ENV PROJECT_DOWNLOAD_URL="https://home.apache.org/~dajac/kafka-2.8.1-rc1/"
+ENV PROJECT_KAFKA_VERSION="2.8.1"
+ENV PROJECT_SCALA_VERSION="2.13"
+
+```
 
 ## Currently Supported Validations
 These are validations that are currently supported
