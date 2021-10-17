@@ -1,24 +1,9 @@
-FROM ubuntu:20.04
-
-ENV DEBIAN_FRONTEND=noninteractive
+FROM izzyacademy/kafka-core:1.0.0
 
 # Defining variables for project artifacts - location, project version and scala versions
 ENV PROJECT_DOWNLOAD_URL="https://home.apache.org/~dajac/kafka-2.8.1-rc1/"
 ENV PROJECT_KAFKA_VERSION="2.8.1"
 ENV PROJECT_SCALA_VERSION="2.13"
-
-RUN apt-get update
-
-RUN apt-get -y install aptitude vim curl wget gnupg python3-pip openjdk-11-jdk
-
-RUN apt-get -y install inetutils-telnet inetutils-ping
-
-# https://pypi.org/project/jproperties/
-RUN pip install jproperties
-
-RUN mkdir -p /usr/local/software
-
-WORKDIR /usr/local/software
 
 RUN wget "${PROJECT_DOWNLOAD_URL}/kafka_${PROJECT_SCALA_VERSION}-${PROJECT_KAFKA_VERSION}.tgz"
 

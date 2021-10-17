@@ -1,14 +1,6 @@
-FROM ubuntu:20.04
+FROM izzyacademy/kafka-docs-base:1.0.0
 
-ENV DEBIAN_FRONTEND=noninteractive
-
-RUN apt-get update
-
-RUN apt-get -y install aptitude vim curl wget gnupg python3-pip openjdk-11-jdk
-
-RUN apt-get -y install inetutils-telnet inetutils-ping unzip apache2 git
-
-RUN mkdir -p /usr/local/software /tmp/kafka-validation
+RUN mkdir -p /tmp/kafka-validation
 
 ENV TMPDIR="/tmp/kafka-validation"
 
@@ -28,5 +20,5 @@ WORKDIR /usr/local/software
 EXPOSE 80 443 
 
 # This is how to build the base Docker image
-# docker build . -f Docs.Dockerfile -t izzyacademy/kafka-docs:2.8.1-rc1
+# docker build . -f Docs.Dockerfile -t izzyacademy/kafka-docs:3.0.0
 
