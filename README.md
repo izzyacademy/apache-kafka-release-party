@@ -87,6 +87,7 @@ cd artifact-validation
 # Create the local docker image needed. Please change the image tag to match your release candidate version
 docker build . -f Validation.Dockerfile -t izzyacademy/kafka-artifact-base:2.8.1-rc1
 
+# Update the docker images in the docker compose file with the docker image you just built
 # Fire up the Docker Compose instance to boot up the Docker container(s)
 cd compose 
 docker-compose up
@@ -150,6 +151,7 @@ cd docs-validation
 # Create the local docker image needed. Please change the image tag to match your release candidate version
 docker build . -f Docs.Dockerfile -t izzyacademy/kafka-docs:2.8.1-rc1
 
+# Update the docker images in the docker compose file with the docker image you just built
 # Fire up the Docker Compose instance to boot up the Docker container(s)
 cd compose 
 docker-compose up
@@ -230,6 +232,7 @@ It provides a 3-node cluster that depends on Zookeeper
 
 cd compose/legacy
 
+# Update the docker images in the docker compose file with the dockers image you just built earlier
 # Deploys a multi-node cluster using Zookeeper 
 docker-compose up
 
@@ -277,6 +280,7 @@ cd apache-kafka-release-party/cluster-validation
 
 cd compose/kraft
 
+# Update the docker images in the docker compose file with the docker images you just built
 # Deploys a simple single-node cluster in KRaft Mode
 docker-compose up
 
@@ -372,6 +376,7 @@ Running the following commands allow you to boot up the cluster
 
 cd compose/kraft
 
+# Update the docker images in the docker compose file with the docker images you just built
 # Deploys a multi-node cluster in KRaft Mode
 docker-compose --env-file ./environment-variables.sh -f multi-node-docker-compose.yml up
 
