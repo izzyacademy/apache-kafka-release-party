@@ -1,4 +1,4 @@
-FROM izzyacademy/kafka-binary-base:2.8.1-rc1
+FROM izzyacademy/kafka-binary-base:3.1.0-rc0
 
 # in Zookeeper, Brokers and Connect Docker images:
 # Copy over the python scripts and generate the configs for Zookeeper
@@ -20,4 +20,4 @@ EXPOSE 3888
 
 ENTRYPOINT ["/usr/local/software/kafka/bin/zookeeper-entrypoint.sh"]
 
-# docker build . -f Zookeeper.Dockerfile -t izzyacademy/zookeeper:2.8.1-rc1
+# docker build . -f Zookeeper.Dockerfile -t izzyacademy/zookeeper:3.1.0-rc0
