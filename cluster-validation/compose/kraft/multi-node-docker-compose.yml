@@ -32,9 +32,9 @@ services:
       KAFKA_CLUSTER_ID: "${CLUSTER_ID}"
       KAFKA_CONTROLLER_QUORUM_VOTERS: "${CONTROLLER_QUORUM_VOTERS}"
       KAFKA_LISTENERS: 'CONTROLLER://0.0.0.0:19091'
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: 'CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: 'CONTROLLER:PLAINTEXT'
       # There must be no advertised listeners when running just a KRaft controller (i.e. when process.roles=controller).
-      # KAFKA_ADVERTISED_LISTENERS: 'CONTROLLER://node1:19091' # this must be empty https://issues.apache.org/jira/browse/KAFKA-13456
+      # KAFKA_ADVERTISED_LISTENERS: 'PLAINTEXT://node1:19091' # this must be empty https://issues.apache.org/jira/browse/KAFKA-13456
       # KAFKA_INTER_BROKER_LISTENER_NAME: 'PLAINTEXT' This is not necessary when node is just a controller
       KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
