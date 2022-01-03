@@ -135,4 +135,7 @@ docker-compose --env-file ./environment-variables.sh -f multi-node-docker-compos
 # Shuts down the containers
 docker-compose --env-file ./environment-variables.sh -f multi-node-docker-compose.yml down --remove-orphans
 
+# Log on to NodeId=2 from a separate window or tab
+docker exec -it node2 /bin/bash
+
 ```
