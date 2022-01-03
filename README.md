@@ -76,6 +76,10 @@ cd apache-kafka-release-party
 
 Please add the appropriate environment variables in your Dockerfile accordingly.
 
+## Quick Validation Using Pre-Compiled Docker Images
+
+If you would like to use pre-packaged docker images instead of having to prepare the images yourself, docker images based on Apache Kafka 3.1.0 are available and you can use the [steps here](QUICK-VALIDATION.md) for how to boot up the environments. Once you have the environments up and running using the pre-packaged docker images, you can come back to this page to perform the validations
+
 ## Validation of Hashes, GPG Keys and Source Code
 
 To validate the cryptographic hashes of the artifacts, please follow the following steps to set up the local environment:
