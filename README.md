@@ -190,7 +190,7 @@ To validate cluster setup in KRaft and Legacy Mode, you can follow the instructi
 
 Once the repository has been checked out to your local environment (laptop, desktop), you can build the Docker images and have them ready for use within your Docker Compose or Kubernetes setup:
 
-When building the docker images, please use image tags (like 3.1.0-rc0) that reflects the target Release Candidate Number, release version and other relevant configs. This will help reduce confusion later. Trust me on this!
+When building the docker images, please use image tags (like 3.1.0-rc1) that reflects the target Release Candidate Number, release version and other relevant configs. This will help reduce confusion later. Trust me on this!
 
 You may run the following commands, to build the Docker images:
 

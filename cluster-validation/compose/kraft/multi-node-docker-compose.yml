@@ -14,13 +14,13 @@ services:
   # You can use this to connect to the docker container once it is running
   # docker exec -it debugger /bin/bash
   debugger:
-    image: izzyacademy/kafka-binary-base:3.1.0-rc0
+    image: izzyacademy/kafka-binary-base:3.1.0-rc1
     hostname: debugger
     container_name: debugger
     entrypoint: [ 'sleep', '48h' ]
 
   node1:
-    image: izzyacademy/kafka-broker:3.1.0-rc0
+    image: izzyacademy/kafka-broker:3.1.0-rc1
     hostname: node1
     container_name: node1
     ports:
@@ -46,7 +46,7 @@ services:
       KAFKA_LOG_DIRS: "${LOG_DIRS}"
 
   node2:
-    image: izzyacademy/kafka-broker:3.1.0-rc0
+    image: izzyacademy/kafka-broker:3.1.0-rc1
     hostname: node2
     container_name: node2
     ports:
@@ -72,7 +72,7 @@ services:
       KAFKA_LOG_DIRS: "${LOG_DIRS}"
 
   node3:
-    image: izzyacademy/kafka-broker:3.1.0-rc0
+    image: izzyacademy/kafka-broker:3.1.0-rc1
     hostname: node3
     container_name: node3
     ports:
@@ -99,7 +99,7 @@ services:
       KAFKA_LOG_DIRS: "${LOG_DIRS}"
 
   node4:
-    image: izzyacademy/kafka-broker:3.1.0-rc0
+    image: izzyacademy/kafka-broker:3.1.0-rc1
     hostname: node4
     container_name: node4
     ports:

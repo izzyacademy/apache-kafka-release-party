@@ -2,19 +2,19 @@
 
 This validation walks you through the validation of Apache Kafka 3.1.0 RC0 using the following pre-packaged Docker images based on the first release candidate for Apache kafka 3.1.0
 
-- izzyacademy/kafka-artifact-base:3.1.0-rc0
-- izzyacademy/kafka-binary-base:3.1.0-rc0
-- izzyacademy/kafka-docs:3.1.0-rc0
-- izzyacademy/zookeeper:3.1.0-rc0
-- izzyacademy/kafka-broker:3.1.0-rc0
-- izzyacademy/kafka-connect:3.1.0-rc0
+- izzyacademy/kafka-artifact-base:3.1.0-rc1
+- izzyacademy/kafka-binary-base:3.1.0-rc1
+- izzyacademy/kafka-docs:3.1.0-rc1
+- izzyacademy/zookeeper:3.1.0-rc1
+- izzyacademy/kafka-broker:3.1.0-rc1
+- izzyacademy/kafka-connect:3.1.0-rc1
 
 Follow the steps here to boot up the environment in a few seconds without having to prepare the docker images
 
 The validation steps remain the same from the [README page](README.md) for each section you need to validate
 
 - Release Candidate Artifacts
-- Site Documentation for 3.1.0 RC0
+- Site Documentation for 3.1.0 RC1
 - Validation of Cluster in Zookeeper Mode
 - Validation of Cluster in KRaft Mode (Single and Multi-Node)
 
