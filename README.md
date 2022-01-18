@@ -29,7 +29,7 @@ Prior to voting for the release candidates, we plan to validate the following:
 
 These are the base urls for the various release candidates that have been tested. Remember, KRaft mode is only possible for Kafka 2.8 and later.
 
-- Kafka 3.1.0: https://home.apache.org/~dajac/kafka-3.1.0-rc0/
+- Kafka 3.1.0: https://home.apache.org/~dajac/kafka-3.1.0-rc1/
 - Kafka 3.0.0: https://home.apache.org/~kkarantasis/kafka-3.0.0-rc2/
 - Kafka 2.8.1: https://home.apache.org/~dajac/kafka-3.1.0-rc0/
 - Kafka 2.7.2: https://home.apache.org/~mimaison/kafka-2.7.2-rc0/
@@ -42,7 +42,7 @@ Here is an example:
 ```bash
 # Set this up on your Dockerfile for Source Code validation and Cluster validation
 
-ENV PROJECT_DOWNLOAD_URL="https://home.apache.org/~dajac/kafka-3.1.0-rc0/"
+ENV PROJECT_DOWNLOAD_URL="https://home.apache.org/~dajac/kafka-3.1.0-rc1/"
 ENV PROJECT_KAFKA_VERSION="3.1.0"
 ENV PROJECT_SCALA_VERSION="2.13"
 
@@ -90,7 +90,7 @@ To validate the cryptographic hashes of the artifacts, please follow the followi
 cd artifact-validation
 
 # Create the local docker image needed. Please change the image tag to match your release candidate version
-docker build . -f Validation.Dockerfile -t izzyacademy/kafka-artifact-base:3.1.0-rc0
+docker build . -f Validation.Dockerfile -t izzyacademy/kafka-artifact-base:3.1.0-rc1
 
 # Update the docker images in the docker compose file with the docker image you just built
 # Fire up the Docker Compose instance to boot up the Docker container(s)
@@ -155,7 +155,7 @@ To validate the site documents, you need to run the commands below and at the en
 cd docs-validation
 
 # Create the local docker image needed. Please change the image tag to match your release candidate version
-docker build . -f Docs.Dockerfile -t izzyacademy/kafka-docs:3.1.0-rc0
+docker build . -f Docs.Dockerfile -t izzyacademy/kafka-docs:3.1.0-rc1
 
 # Update the docker images in the docker compose file with the docker image you just built
 # Fire up the Docker Compose instance to boot up the Docker container(s)
@@ -201,19 +201,19 @@ cd cluster-validation
 
 # This builds the base binary image for your specified RC, version number and Scala version
 # Please change the image tag to match your release candidate version
-docker build . -f Binary-Base.Dockerfile -t izzyacademy/kafka-binary-base:3.1.0-rc0
+docker build . -f Binary-Base.Dockerfile -t izzyacademy/kafka-binary-base:3.1.0-rc1
 
 # Building the Docker image for Zookeeper container(s)
 # Please change the image tag to match your release candidate version
-docker build . -f Zookeeper.Dockerfile -t izzyacademy/zookeeper:3.1.0-rc0
+docker build . -f Zookeeper.Dockerfile -t izzyacademy/zookeeper:3.1.0-rc1
 
 # Building the Docker image for Kafka Broker container(s)
 # Please change the image tag to match your release candidate version
-docker build . -f Broker.Dockerfile -t izzyacademy/kafka-broker:3.1.0-rc0
+docker build . -f Broker.Dockerfile -t izzyacademy/kafka-broker:3.1.0-rc1
 
 # Building the Docker image for Kafka Connect container(s)
 # Please change the image tag to match your release candidate version
-docker build . -f Connect.Dockerfile -t izzyacademy/kafka-connect:3.1.0-rc0
+docker build . -f Connect.Dockerfile -t izzyacademy/kafka-connect:3.1.0-rc1
 
 ```
 
